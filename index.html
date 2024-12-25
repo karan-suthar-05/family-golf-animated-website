@@ -1,0 +1,655 @@
+<!DOCTYPE html>
+<html lang="en" class="overflow-x-hidden">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+    <style>
+        *::selection {
+            background-color: #fff;
+            color: #91b509;
+        }
+
+        html::-webkit-scrollbar {
+            background-color: #000;
+            width: 10px;
+        }
+
+        html::-webkit-scrollbar-thumb {
+            background-color: #91b509;
+            border-radius: 50px;
+        }
+
+        body {
+            overflow-x: hidden;
+        }
+
+        #section1 h1::before {
+            -webkit-text-stroke: 1px #91b509;
+        }
+
+        .moving-text {
+            animation-name: move;
+            animation-duration: 15s;
+            animation-iteration-count: infinite;
+            animation-timing-function: linear;
+        }
+
+        .moving-text h4 {
+            -webkit-text-stroke: 1px #fff;
+            transition: all ease 0.5s;
+        }
+
+        .moving-text h4:hover {
+            -webkit-text-stroke: 1px #91b509;
+            color: #91b509;
+        }
+
+        @keyframes move {
+            0% {
+                transform: translateX(1%);
+            }
+
+            100% {
+                transform: translateX(-100%);
+            }
+        }
+
+        #about-us-card-container::before {
+            content: '';
+            background-image: url('bg\ removed\ circl.png');
+            filter: invert(1);
+            background-clip: content-box;
+            position: absolute;
+            top: -15%;
+            left: -1%;
+            z-index: -1;
+            width: 30vw;
+            height: 50vh;
+            background-size: cover;
+        }
+
+        #about-us-card-container .card:hover .overlay {
+            opacity: 1;
+            scale: 1;
+            transform: translateX(0%);
+        }
+
+        #about-us-card-container .card img {
+            transition: all ease 0.5s;
+        }
+
+        #about-us-card-container .card:hover img {
+            transform: scale(1.2);
+        }
+
+        #about-us-card-container .overlay {
+            opacity: 0;
+            transform: scale(1.2);
+            transition: all ease 0.5s;
+        }
+
+        #about-us-card-container .overlay a {
+            transition: all ease 0.5s;
+        }
+
+        #about-us-card-container .overlay a:hover {
+            background-color: #fff;
+            border: 2px solid #fff;
+        }
+
+        #about-us-card-container .circle-cursor {
+            position: absolute;
+            top: 0;
+            left: 0;
+            padding: 2vw;
+            border: 1px solid #fff;
+            border-radius: 50%;
+        }
+
+        #what-you-want-h2 {
+            -webkit-text-stroke: 1px #fff;
+            color: #000;
+            font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+        }
+
+        /*swiper button*/
+        #swiper-section .swiper {
+            position: inherit;
+            display: flex;
+            flex-direction: column;
+        }
+
+        #swiper-section .swiper-wrapper {
+            flex-grow: 1;
+        }
+
+        .swiper-pagination {
+            position: inherit;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 1vw;
+            padding: 1vw;
+            margin-top: 1vw;
+        }
+
+        .swiper-pagination-bullet {
+            background: #fff;
+            opacity: 1;
+            transition: all ease 0.5s;
+        }
+
+        .swiper-pagination-bullet-active {
+            position: relative;
+            background: #91b509;
+        }
+
+        .swiper-pagination-bullet-active::before {
+            content: '';
+            padding: 1vw;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            position: absolute;
+            background-color: transparent;
+            border: 2px solid #91b509;
+            border-radius: 50%;
+        }
+
+        .rotate-z-2 {
+            transform: rotateZ(-2deg);
+        }
+    </style>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+
+<body class="font-['montserrat'] text-white overflow-x-hidden">
+    <nav id="nav" style="height: 4rem;padding: 2.8rem 0;" class="w-full fixed z-[20] overflow-x-hidden">
+        <div class="w-full h-full text-sm hidden lg:flex items-center justify-start gap-8 uppercase px-16">
+            <a href="#" class="logo z-[12]"><img
+                    src="https://eiwgew27fhz.exactdn.com/wp-content/uploads/2023/02/logo-white.svg" alt="FamilyGolfLogo"
+                    class="w-[4vw]"></a>
+            <a href="#" class="z-[12]">TOPTRACER RANGE</a>
+            <a href="#" class="z-[12]">Golf Lessons</a>
+            <a href="#" class="z-[12]">Adventure Golf</a>
+            <a href="#" class="z-[12]">coffee shop</a>
+            <a href="#" class="z-[12]">leagues</a>
+        </div>
+        <div class="w-full h-full flex items-center justify-between lg:hidden relative px-4 sm:px-8 md:px-16">
+            <a href="#" class="logo z-[12]"><img
+                    src="https://eiwgew27fhz.exactdn.com/wp-content/uploads/2023/02/logo-white.svg" alt="FamilyGolfLogo"
+                    class="w-[12vw] sm:w-[10vw] md:w-[8vw] lg:w-[4vw]"></a>
+            <div class="menu w-[9vw] sm:w-[6vw] md:w-[6vw] lg:w-[4vw]">
+                <svg xmlns="http://www.w3.org/2000/svg" class="block" viewBox="0 0 512.655 543.64">
+                    <defs>
+                        <clipPath id="openmenu">
+                            <path fill="#fff" d="M544 144h512v414H544z"></path>
+                        </clipPath>
+                    </defs>
+                    <path fill="#fff"
+                        d="m138.6 541-.33-115.5h-32.01l-36.63 61.545L32.01 425.5H0V541h35.475v-50.82l25.08 40.42h17.16l25.08-42.24.33 52.64Zm57.095-29.37v-15.18h48.84V468.4h-48.84v-13.53h55.6V425.5H157.41V541h96.03v-29.37Zm148.66-86.13v52.47l-43.89-52.47h-32.01V541h37.95v-52.47l43.89 52.47h32.01V425.5Zm112.04 118.14c35.475 0 56.265-19.965 56.265-54.615V425.5h-38.285v62.37c0 17.655-6.765 24.255-17.655 24.255s-17.655-6.6-17.655-24.255V425.5h-38.94v63.525c0 34.65 20.79 54.615 56.27 54.615Z">
+                    </path>
+                    <g clip-path="url(#openmenu)" transform="translate(-543.405 -144)">
+                        <path fill="#fff"
+                            d="M893.3 146.514a23.983 23.983 0 0 1 34.7 21.5v208a26.932 26.932 0 0 1-.3 4 25.955 25.955 0 0 1 .3 4v92.8c76.5 16.6 128 47.7 128 83.2 0 53-114.6 96-256 96s-256-43-256-96 114.6-96 256-96a657.784 657.784 0 0 1 80 4.8v-78l-194.7-97.4a24.028 24.028 0 0 1 0-43l208-104ZM768 560.014c0 17.7 28.7 32 64 32s64-14.3 64-32-28.7-32-64-32-64 14.3-64 32Z">
+                        </path>
+                    </g>
+                    <path fill="#91b508"
+                        d="M169.55 132.385a6 6 0 0 1 0-10.769l157.4-77.365a6 6 0 0 1 8.645 5.384v154.73a6 6 0 0 1-8.647 5.385Z">
+                    </path>
+                </svg>
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 516.434 534.384" class="hidden">
+                    <defs>
+                        <clipPath id="closemenu">
+                            <path fill="#fff" d="M544 144h512v414H544Z"></path>
+                        </clipPath>
+                    </defs>
+                    <g clip-path="url(#closemenu)" transform="translate(-542.726 -144)">
+                        <path fill="#fff"
+                            d="M893.3 146.514a23.983 23.983 0 0 1 34.7 21.5v208a26.925 26.925 0 0 1-.3 4 25.949 25.949 0 0 1 .3 4v92.8c76.5 16.6 128 47.7 128 83.2 0 53-114.6 96-256 96s-256-43-256-96 114.6-96 256-96a657.8 657.8 0 0 1 80 4.8v-78l-194.7-97.4a24.028 24.028 0 0 1 0-43l208-104ZM768 560.014c0 17.7 28.7 32 64 32s64-14.3 64-32-28.7-32-64-32-64 14.3-64 32Z">
+                        </path>
+                    </g>
+                    <path fill="#039c3d"
+                        d="M170.229 132.385a6 6 0 0 1 0-10.769l157.4-77.365a6 6 0 0 1 8.645 5.384v154.73a6 6 0 0 1-8.647 5.385Z">
+                    </path>
+                    <path fill="#fff"
+                        d="M58.11 534.384c20.413 0 36.505-7.45 46.786-20.86l-22.2-19.817c-6.109 7.748-13.41 12.218-22.8 12.218-14.6 0-24.436-10.132-24.436-26.075s9.834-26.075 24.436-26.075c9.387 0 16.688 4.47 22.8 12.218l22.2-19.817c-10.281-13.41-26.373-20.86-46.786-20.86-33.525 0-58.11 22.5-58.11 54.534s24.585 54.534 58.11 54.534ZM115.028 532h82.251v-27.267h-47.087V427.7h-35.164Zm145.126 2.384c33.972 0 58.855-22.946 58.855-54.534s-24.883-54.534-58.855-54.534-58.855 22.946-58.855 54.534 24.88 54.534 58.855 54.534Zm0-28.459c-12.963 0-23.393-9.834-23.393-26.075s10.43-26.075 23.393-26.075 23.393 9.834 23.393 26.075-10.43 26.075-23.393 26.075Zm110.558 28.459c32.333 0 48.574-16.092 48.574-35.164 0-38.442-57.663-28.012-57.663-40.528 0-3.576 3.278-6.556 13.559-6.556 9.089 0 18.774 2.533 29.055 7.748l10.579-25.484c-10.877-6.109-25.33-9.089-39.336-9.089-32.333 0-48.574 15.794-48.574 35.164 0 38.889 57.663 28.31 57.663 41.422 0 3.576-3.576 5.662-13.559 5.662a71.557 71.557 0 0 1-34.419-9.536l-11.324 25.633c10.43 6.407 28.012 10.728 45.445 10.728Zm93.572-28.906V491.77h44.1v-25.33h-44.1v-12.218h50.213V427.7h-84.781V532h86.718v-26.522Z">
+                    </path>
+                </svg>
+            </div>
+        </div>
+        <div id="mobile-menu"
+            class="w-full h-[100vh] opacity-0 scale-y-0 origin-top bg-gradient-to-bl from-[#5EB32A] to-[#9ECC1F] flex flex-col justify-center items-center gap-8 fixed top-0 z-[-1] sm:text-lg md:text-xl uppercase font-bold">
+            <a href="#" class="z-[12]">TOPTRACER RANGE</a>
+            <a href="#" class="z-[12]">Golf Lessons</a>
+            <a href="#" class="z-[12]">Adventure Golf</a>
+            <a href="#" class="z-[12]">coffee shop</a>
+            <a href="#" class="z-[12]">leagues</a>
+        </div>
+    </nav>
+    <div id="cursor"
+        class="w-[2vw] h-[2vw] bg-[#a4ce0b] border border-[#a4ce0b] rounded-full fixed z-[21] pointer-events-none hidden md:block">
+    </div>
+    <div id="cursor-blur"
+        class="w-[15vw] h-[15vw] bg-[#a4ce0b] blur-[100px] rounded-full fixed z-[1] pointer-events-none">
+    </div>
+    <video autoplay loop muted src="./hero.mp4" class="w-[100vw] h-[100vh] object-cover fixed z-[-3]"></video>
+    <div id="main" class="relative bg-[rgba(0,0,0,0.25)]">
+        <section id="section1"
+            class="w-full min-h-[100vh] relative flex flex-col uppercase items-center justify-center text-center z-[10] py-16 overflow-hidden">
+            <h1
+                class="text-[12vw] w-1/2 sm:w-auto sm:text-[7vw] lg:text-[7vw] font-bold relative  before:content-['EAT._DRINK._PLAY.'] before:absolute before:text-black before:stroke-red before:-top-[3px] before:-left-[3px] before:z-[-1] ">
+                eat. drink. play.</h1>
+            <h2 class="text-lg w-[90%] sm:w-auto sm:text-2xl font-medium mb-4">welcome to sidecup family golf!</h2>
+            <p class="w-full text-xs sm:w-[50%] sm:text-sm">Lorem ipsum dolor sit amet consectetur adipisicing elit. Perferendis similique
+                itaque amet voluptatibus. In, et!</p>
+            <div id="down-arrow"
+                class="w-[11vw] h-[11vw] absolute bottom-[10%] md:bottom-[1%] left-[-2%] z-[20] flex items-center justify-center group">
+                <a href="#section2">
+                    <div
+                        class="p-12 rounded-full border-2 border-[#91B509] cursor-pointer group-hover:p-2 group-hover:bg-[#91B509] transition-all duration-[0.5s]">
+                        <svg fill="#ffffff" class="w-[5vw] md:w-[2.5vw]" viewBox="0 0 330 330" xml:space="preserve"
+                            stroke="#ffffff">
+                            <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+                            <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
+                            <g id="SVGRepo_iconCarrier">
+                                <path id="XMLID_30_"
+                                    d="M154.394,325.606C157.322,328.535,161.161,330,165,330s7.678-1.465,10.607-4.394l75-75 c5.858-5.857,5.858-15.355,0-21.213c-5.858-5.857-15.356-5.857-21.213,0L180,278.787V15c0-8.284-6.716-15-15-15 c-8.284,0-15,6.716-15,15v263.787l-49.394-49.394c-5.858-5.857-15.355-5.857-21.213,0c-5.858,5.857-5.858,15.355,0,21.213 L154.394,325.606z">
+                                </path>
+                            </g>
+                        </svg>
+                    </div>
+                </a>
+            </div>
+        </section>
+        <section id="section2" class="  w-full min-h-[100vh] relative z-[10] pb-16">
+            <div
+                class="moving-text-container w-full text-5xl md:text-7xl font-['Merriweather'] font-bold uppercase whitespace-nowrap text-transparent my-16">
+                <div class="moving-text inline-flex gap-4 ">
+                    <h4>TOPTRACER RANGE</h4>
+                    <h4>Golf Lessons</h4>
+                    <h4>Adventure Golf</h4>
+                    <h4>coffee shop</h4>
+                    <h4>leagues</h4>
+                </div>
+                <div class="moving-text inline-flex gap-4">
+                    <h4>TOPTRACER RANGE</h4>
+                    <h4>Golf Lessons</h4>
+                    <h4>Adventure Golf</h4>
+                    <h4>coffee shop</h4>
+                    <h4>leagues</h4>
+                </div>
+            </div>
+            <div id="about-us-container" class="flex flex-col md:flex-row gap-4 py-4 md:py-10 px-4 md:px-16">
+                <img src="https://eiwgew27fhz.exactdn.com/wp-content/uploads/2023/02/home-about-1-300x200.jpg?strip=all&lossy=1&sharp=1&ssl=1"
+                    alt="" class="rounded-lg w-full md:w-[15vw] md:h-[15vw] object-cover" data-tilt>
+                <div id="about-us-content" class="grow text-center">
+                    <h2 class="mb-2 text-3xl md:text-2xl font-medium">ABOUT US</h2>
+                    <p class="w-full md:w-[80%] mx-auto">Home to a 46-bay, multi-tier, floodlit driving range, powered by
+                        Toptracer Range technology. Complimented by a practice green and
+                        bunker, coffee shop and American Golf Store. There truly is
+                        something for everyone as we also boast two outdoor 18-hole
+                        dinosaur themed crazy golf courses.</p>
+                </div>
+                <img src="https://eiwgew27fhz.exactdn.com/wp-content/uploads/2023/02/home-about-2-300x200.jpg?strip=all&lossy=1&sharp=1&ssl=1"
+                    alt="" class="rounded-lg w-full md:w-[15vw] md:h-[15vw] object-cover">
+            </div>
+            <div id="about-us-card-container" class="relative w-full md:h-[80vh] flex flex-col md:flex-row gap-16 py-10 px-4 md:px-16 mt-8">
+                <div class="card relative w-full md:w-[40vw]  h-[70vh] md:h-full rounded-xl overflow-hidden">
+                    <img src="https://eiwgew27fhz.exactdn.com/wp-content/uploads/2023/02/home-toptracer-1024x682.jpg?strip=all&lossy=1&sharp=1&ssl=1"
+                        alt="" class="w-full h-full object-cover">
+                    <h2
+                        class="w-full absolute bottom-[5%] left-[50%] -translate-x-[43%] text-white text-3xl font-medium">
+                        TOPTRACER RANGE</h2>
+                    <div class="overlay text-black flex w-full h-full absolute top-0 left-0 bg-[#91b509] md:py-16 md:px-4 p-4">
+                        <div class="circle-cursor pointer-events-none"></div>
+                        <a href="#"
+                            class="flex items-center justify-center absolute top-[-5%] right-[-5%] border-2 border-black p-8 rounded-full">
+                            <svg class="w-[8vw] h-[8vw] md:w-[2vw] md:h-[2vw]">
+                                <g id="SVGRepo_bgCarrier" stroke-width="0">
+
+                                    <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
+                                    <g id="SVGRepo_iconCarrier">
+                                        <path fill-rule="evenodd" clip-rule="evenodd"
+                                            d="M12.2929 4.29289C12.6834 3.90237 13.3166 3.90237 13.7071 4.29289L20.7071 11.2929C21.0976 11.6834 21.0976 12.3166 20.7071 12.7071L13.7071 19.7071C13.3166 20.0976 12.6834 20.0976 12.2929 19.7071C11.9024 19.3166 11.9024 18.6834 12.2929 18.2929L17.5858 13H4C3.44772 13 3 12.5523 3 12C3 11.4477 3.44772 11 4 11H17.5858L12.2929 5.70711C11.9024 5.31658 11.9024 4.68342 12.2929 4.29289Z"
+                                            fill="#000"></path>
+                                    </g>
+                            </svg>
+                        </a>
+                        <div class="w-full self-end space-y-4">
+                            <h2 class="text-3xl font-medium ml-1">TOPTRACER RANGE</h2>
+                            <p class="ml-1">Lorem ipsum dolor sit amet consectetur adipisicing elit. Praesentium, qui.
+                                Nobis officiis
+                                fugit quidem ratione?</p>
+                            <p class="ml-1">Lorem ipsum dolor sit amet consectetur adipisicing elit. Praesentium, qui.
+                                Nobis officiis
+                                fugit quidem ratione?</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="card relative w-full md:w-[40vw] h-[70vh] md:h-full rounded-xl overflow-hidden">
+                    <img src="https://eiwgew27fhz.exactdn.com/wp-content/uploads/2023/02/hero-4-1024x1024.jpg?strip=all&lossy=1&sharp=1&ssl=1"
+                        alt="" class="w-full h-full object-cover">
+                    <h2
+                        class="w-full absolute bottom-[5%] left-[50%] -translate-x-[43%]  text-white text-3xl font-medium">
+                        Adventure Golf</h2>
+
+                    <div class="overlay text-black flex w-full h-full absolute top-0 left-0 bg-[#91b509] py-16 px-4">
+                        <div class="circle-cursor pointer-events-none"></div>
+                        <a href="#"
+                            class="flex items-center justify-center absolute top-[-5%] right-[-5%] border-2 border-black p-8 rounded-full">
+                            <svg class="w-[8vw] h-[8vw] md:w-[2vw] md:h-[2vw]">
+                                <g id="SVGRepo_bgCarrier" stroke-width="0">
+
+                                    <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
+                                    <g id="SVGRepo_iconCarrier">
+                                        <path fill-rule="evenodd" clip-rule="evenodd"
+                                            d="M12.2929 4.29289C12.6834 3.90237 13.3166 3.90237 13.7071 4.29289L20.7071 11.2929C21.0976 11.6834 21.0976 12.3166 20.7071 12.7071L13.7071 19.7071C13.3166 20.0976 12.6834 20.0976 12.2929 19.7071C11.9024 19.3166 11.9024 18.6834 12.2929 18.2929L17.5858 13H4C3.44772 13 3 12.5523 3 12C3 11.4477 3.44772 11 4 11H17.5858L12.2929 5.70711C11.9024 5.31658 11.9024 4.68342 12.2929 4.29289Z"
+                                            fill="#000"></path>
+                                    </g>
+                            </svg>
+                        </a>
+                        <div class="w-full self-end space-y-4">
+                            <h2 class="text-3xl font-medium ml-1">
+                                Adventure Golf
+                            </h2>
+                            <p class="ml-1">Lorem ipsum dolor sit amet consectetur adipisicing elit. Praesentium, qui.
+                                Nobis officiis
+                                fugit quidem ratione?</p>
+                            <p class="ml-1">Lorem ipsum dolor sit amet consectetur adipisicing elit. Praesentium, qui.
+                                Nobis officiis
+                                fugit quidem ratione?</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="card relative w-full md:w-[40vw] h-[70vh] md:h-full rounded-xl overflow-hidden">
+                    <img src="https://eiwgew27fhz.exactdn.com/wp-content/uploads/2023/02/home-lessons-1024x682.jpg?strip=all&lossy=1&sharp=1&ssl=1"
+                        alt="" class="w-full h-full object-cover">
+                    <h2
+                        class="w-full absolute bottom-[5%] left-[50%] -translate-x-[43%] text-white text-3xl font-medium">
+                        leagues</h2>
+                    <div class="overlay text-black flex w-full h-full absolute top-0 left-0 bg-[#91b509] py-16 px-4">
+                        <div class="circle-cursor pointer-events-none"></div>
+                        <a href="#"
+                            class="flex items-center justify-center absolute top-[-5%] right-[-5%] border-2 border-black p-8 rounded-full">
+                            <svg class="w-[8vw] h-[8vw] md:w-[2vw] md:h-[2vw]">
+                                <g id="SVGRepo_bgCarrier" stroke-width="0">
+
+                                    <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
+                                    <g id="SVGRepo_iconCarrier">
+                                        <path fill-rule="evenodd" clip-rule="evenodd"
+                                            d="M12.2929 4.29289C12.6834 3.90237 13.3166 3.90237 13.7071 4.29289L20.7071 11.2929C21.0976 11.6834 21.0976 12.3166 20.7071 12.7071L13.7071 19.7071C13.3166 20.0976 12.6834 20.0976 12.2929 19.7071C11.9024 19.3166 11.9024 18.6834 12.2929 18.2929L17.5858 13H4C3.44772 13 3 12.5523 3 12C3 11.4477 3.44772 11 4 11H17.5858L12.2929 5.70711C11.9024 5.31658 11.9024 4.68342 12.2929 4.29289Z"
+                                            fill="#000"></path>
+                                    </g>
+                            </svg>
+                        </a>
+                        <div class="w-full self-end space-y-4">
+                            <h2 class="text-3xl font-medium ml-1">
+                                leagues</h2>
+                            <p class="ml-1">Lorem ipsum dolor sit amet consectetur adipisicing elit. Praesentium, qui.
+                                Nobis officiis
+                                fugit quidem ratione?</p>
+                            <p class="ml-1">Lorem ipsum dolor sit amet consectetur adipisicing elit. Praesentium, qui.
+                                Nobis officiis
+                                fugit quidem ratione?</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="relative overflow-hidden w-full h-[35vh] bg-gradient-to-bl from-[#5EB32A] to-[#9ECC1F] mt-16">
+                <img src="https://eiwgew27fhz.exactdn.com/wp-content/themes/puttosaurus/img/dots-side.svg" alt=""
+                    class="w-[15%] h-[100%] absolute -left-5 top-0 object-cover rotate-180">
+                <h2
+                    class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-center text-black text-xl font-bold">
+                    SIGN UP FOR SIDCUP NEWS AND SPECIAL OFFERS <br> STRAIGHT TO YOUR INBOX</h2>
+                <img src="https://eiwgew27fhz.exactdn.com/wp-content/themes/puttosaurus/img/dots-side.svg" alt=""
+                    class="w-[15%] h-[100%] absolute -right-5 top-0 object-cover">
+            </div>
+        </section>
+        <section id="section3" class="w-full min-h-[100vh] relative z-[10] py-16">
+            <div id="quote-container"
+                class="quote-container relative w-full h-[40vh] flex items-center justify-center my-16">
+                <img src="https://eiwgew27fhz.exactdn.com/wp-content/themes/puttosaurus/img/quote-left.svg" alt=""
+                    class="w-[8%] absolute -top-[30%] left-[1%]">
+                <p class="w-[60%] text-2xl font-medium text-center">Excellent couple of hours, relax and enjoy in the
+                    fun. Staff were
+                    accommodating, friendly and very helpful. Café on site for
+                    refreshments etc. Will keep children enterntained during the holidays.
+                    Worth a visit if you haven’t been.</p>
+                <img src="https://eiwgew27fhz.exactdn.com/wp-content/themes/puttosaurus/img/quote-right.svg" alt=""
+                    class="w-[8%] absolute -bottom-[30%] right-[1%]">
+            </div>
+            <div id="rotate-div" class="w-full h-[50vh] flex flex-col gap-8 py-10 rotate-z-2">
+                <div class="swiper insta-swiper grow w-full">
+                    <div class="swiper-wrapper">
+                        <div class="swiper-slide rounded-lg">
+                            <img src="https://eiwgew27fhz.exactdn.com/wp-content/uploads/sb-instagram-feed-images/447781550_991790659220634_5577119039868959224_nlow.jpg?strip=all&lossy=1&sharp=1&w=1920&ssl=1"
+                                alt="" class="rounded-lg w-full h-full object-cover">
+                        </div>
+                        <div class="swiper-slide rounded-lg">
+                            <img src="https://eiwgew27fhz.exactdn.com/wp-content/uploads/sb-instagram-feed-images/446099330_436478269139605_3616962284735382682_nlow.jpg?strip=all&lossy=1&sharp=1&w=1920&ssl=1"
+                                alt="" class="rounded-lg w-full h-full object-cover">
+                        </div>
+                        <div class="swiper-slide rounded-lg">
+                            <img src="https://eiwgew27fhz.exactdn.com/wp-content/uploads/sb-instagram-feed-images/444226941_1417025942347467_5480901222125906797_nlow.jpg?strip=all&lossy=1&sharp=1&w=1920&ssl=1"
+                                alt="" class="rounded-lg w-full h-full object-cover">
+                        </div>
+                        <div class="swiper-slide rounded-lg">
+                            <img src="https://eiwgew27fhz.exactdn.com/wp-content/uploads/sb-instagram-feed-images/442560574_959754042122832_495329382656501152_nlow.jpg?strip=all&lossy=1&sharp=1&w=1920&ssl=1"
+                                alt="" class="rounded-lg w-full h-full object-cover">
+                        </div>
+                        <div class="swiper-slide rounded-lg">
+                            <img src="https://eiwgew27fhz.exactdn.com/wp-content/uploads/sb-instagram-feed-images/438948530_1484966565755090_1439835802890169023_nlow.jpg?strip=all&lossy=1&sharp=1&w=1920&ssl=1"
+                                alt="" class="rounded-lg w-full h-full object-cover">
+                        </div>
+
+                    </div>
+                    <div class="swiper-pagination"></div>
+                </div>
+                <div class="flex px-16">
+                    <a href="#" class="ml-auto flex items-center gap-4 text-2xl font-bold">
+                        <svg class="w-[2vw] cursor-pointer" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+                            <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
+                            <g id="SVGRepo_iconCarrier">
+                                <path fill-rule="evenodd" clip-rule="evenodd"
+                                    d="M12 18C15.3137 18 18 15.3137 18 12C18 8.68629 15.3137 6 12 6C8.68629 6 6 8.68629 6 12C6 15.3137 8.68629 18 12 18ZM12 16C14.2091 16 16 14.2091 16 12C16 9.79086 14.2091 8 12 8C9.79086 8 8 9.79086 8 12C8 14.2091 9.79086 16 12 16Z"
+                                    fill="#fff"></path>
+                                <path
+                                    d="M18 5C17.4477 5 17 5.44772 17 6C17 6.55228 17.4477 7 18 7C18.5523 7 19 6.55228 19 6C19 5.44772 18.5523 5 18 5Z"
+                                    fill="#fff"></path>
+                                <path fill-rule="evenodd" clip-rule="evenodd"
+                                    d="M1.65396 4.27606C1 5.55953 1 7.23969 1 10.6V13.4C1 16.7603 1 18.4405 1.65396 19.7239C2.2292 20.8529 3.14708 21.7708 4.27606 22.346C5.55953 23 7.23969 23 10.6 23H13.4C16.7603 23 18.4405 23 19.7239 22.346C20.8529 21.7708 21.7708 20.8529 22.346 19.7239C23 18.4405 23 16.7603 23 13.4V10.6C23 7.23969 23 5.55953 22.346 4.27606C21.7708 3.14708 20.8529 2.2292 19.7239 1.65396C18.4405 1 16.7603 1 13.4 1H10.6C7.23969 1 5.55953 1 4.27606 1.65396C3.14708 2.2292 2.2292 3.14708 1.65396 4.27606ZM13.4 3H10.6C8.88684 3 7.72225 3.00156 6.82208 3.0751C5.94524 3.14674 5.49684 3.27659 5.18404 3.43597C4.43139 3.81947 3.81947 4.43139 3.43597 5.18404C3.27659 5.49684 3.14674 5.94524 3.0751 6.82208C3.00156 7.72225 3 8.88684 3 10.6V13.4C3 15.1132 3.00156 16.2777 3.0751 17.1779C3.14674 18.0548 3.27659 18.5032 3.43597 18.816C3.81947 19.5686 4.43139 20.1805 5.18404 20.564C5.49684 20.7234 5.94524 20.8533 6.82208 20.9249C7.72225 20.9984 8.88684 21 10.6 21H13.4C15.1132 21 16.2777 20.9984 17.1779 20.9249C18.0548 20.8533 18.5032 20.7234 18.816 20.564C19.5686 20.1805 20.1805 19.5686 20.564 18.816C20.7234 18.5032 20.8533 18.0548 20.9249 17.1779C20.9984 16.2777 21 15.1132 21 13.4V10.6C21 8.88684 20.9984 7.72225 20.9249 6.82208C20.8533 5.94524 20.7234 5.49684 20.564 5.18404C20.1805 4.43139 19.5686 3.81947 18.816 3.43597C18.5032 3.27659 18.0548 3.14674 17.1779 3.0751C16.2777 3.00156 15.1132 3 13.4 3Z"
+                                    fill="#fff"></path>
+                            </g>
+                        </svg>
+                        Follow Us On Instagram
+                    </a>
+                </div>
+            </div>
+            <div id="swiper-section" class="w-full h-[80vh] pt-10 px-16 flex gap-[7vw]">
+                <div id="swiper" class="relative w-1/2 h-full ">
+                    <img src="https://eiwgew27fhz.exactdn.com/wp-content/themes/puttosaurus/img/dots-white.svg" alt=""
+                        class="absolute w-[30%] bottom-0">
+                    <!-- Slider main container -->
+                    <div class="swiper img-swiper w-full h-full">
+                        <!-- Additional required wrapper -->
+                        <div class="swiper-wrapper overflow-hidden">
+                            <!-- Slides -->
+                            <div class="swiper-slide w-full h-full relative rounded-lg overflow-hidden">
+                                <img src="https://eiwgew27fhz.exactdn.com/wp-content/uploads/2023/02/hero-5-1002x1024.jpg?strip=all&lossy=1&sharp=1&ssl=1"
+                                    class="  w-full h-full object-cover rounded-lg  " alt="">
+                                <div
+                                    class="absolute top-0 left-0 w-full h-full bg-gradient-to-t from-[#91b50945] to-transparent rounded-lg">
+                                </div>
+                            </div>
+                            <div class="swiper-slide w-full h-full relative rounded-lg  ">
+
+                                <img src="https://eiwgew27fhz.exactdn.com/wp-content/uploads/2023/02/cafe-menu-e1702553754869-734x1024.jpg?strip=all&lossy=1&sharp=1&ssl=1"
+                                    class="  w-full h-full object-cover rounded-lg relative  " alt="">
+                                <div
+                                    class="absolute top-0 left-0 w-full h-full bg-gradient-to-t from-[#91b50945] to-transparent rounded-lg">
+                                </div>
+                            </div>
+                            <div class="swiper-slide w-full h-full relative rounded-lg  ">
+
+                                <img src="https://eiwgew27fhz.exactdn.com/wp-content/uploads/2023/02/cafe-about-1-682x1024.jpg?strip=all&lossy=1&sharp=1&ssl=1"
+                                    class="swiper-slide w-full h-full object-cover rounded-lg relative<img src="
+                                    https://eiwgew27fhz.exactdn.com/wp-content/uploads/2023/02/cafe-about-1-682x1024.jpg?strip=all&lossy=1&sharp=1&ssl=1"
+                                    class="  w-full h-full object-cover rounded-lg relative" alt="">
+                                <div
+                                    class="absolute top-0 left-0 w-full h-full bg-gradient-to-t from-[#91b50945] to-transparent rounded-lg">
+                                </div>
+                            </div>
+
+                        </div>
+                        <div class="swiper-pagination"></div>
+                    </div>
+                </div>
+                <div id="swiper-content" class="w-1/2 h-full flex flex-col items-start gap-8">
+                    <h2 class="text-4xl font-bold">Food And Drink</h2>
+                    <p class="text-lg leading-8">Whether you’re getting ready to play, just finishing your practice
+                        session or feeling peckish on the range, we have a variety of food and drink options bought
+                        directly to your table or bay.</p>
+                    <p class="text-lg leading-8">We make sure that we cater for everyone, offering a range of vegan and
+                        gluten free options.</p>
+                    <a href="#"
+                        class="btn inline-block bg-black relative flex flex-col border-2 border-[#91B509] px-8 py-4 rounded-full text-sm font-medium uppercase overflow-hidden">
+                        <span class="up-text inline-block z-[5]">Coffee Shop</span>
+                        <span class="bg-container inline-block w-full h-full">
+                            <span
+                                class="inline-block absolute  left-0  w-full h-full rounded-[100%] scale-y-0 scale-x-0 translate-y-[20%] bg-[#a4ce0b]"></span>
+                            <span
+                                class="inline-block absolute  left-0  w-full h-full rounded-[100%] scale-y-0 scale-x-0 translate-y-[20%] bg-[#3D9F3A]"></span>
+                            <span
+                                class="inline-block absolute  left-0  w-full h-full rounded-[100%] scale-y-0 scale-x-0 translate-y-[20%] bg-[#91B509]"></span>
+                        </span>
+                        <span class="down-text inline-block font-bold absolute translate-y-[150%] scale-y-0">Coffee
+                            Shop</span>
+                    </a>
+                </div>
+            </div>
+            <div id="what-you-want"
+                class="relative w-full h-[30vh] mt-32 py-8 px-16 flex items-center justify-center gap-8">
+                <h2 id="what-you-want-h2" class="absolute uppercase -top-[5%] text-[5vw] font-bold">what are you
+                    wanting for?</h2>
+                <div
+                    class="small-card cursor-pointer relative basis-[30vw] h-full rounded-xl bg-[#91B509] overflow-hidden group">
+                    <h2
+                        class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-[1] text-2xl whitespace-nowrap font-bold text-black group-hover:text-white transition-all duration-[0.5s]">
+                        TOPTRACER RANGE</h2>
+                    <img class="object-cover w-full h-full opacity-0 scale-[1.2] group-hover:opacity-100 group-hover:scale-[1] transition-all duration-[0.5s]"
+                        src="https://eiwgew27fhz.exactdn.com/wp-content/uploads/2023/02/page-toptracer-1024x683.jpg?strip=all&lossy=1&sharp=1&ssl=1"
+                        alt="">
+                </div>
+                <div
+                    class="small-card cursor-pointer relative basis-[30vw] h-full rounded-xl bg-[#91B509] overflow-hidden group">
+                    <h2
+                        class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-[1] text-2xl whitespace-nowrap font-bold text-black group-hover:text-white transition-all duration-[0.5s]">
+                        Golf Lessons</h2>
+                    <img class="object-cover w-full h-full opacity-0 scale-[1.2] group-hover:opacity-100 group-hover:scale-[1] transition-all duration-[0.5s]"
+                        src="https://eiwgew27fhz.exactdn.com/wp-content/uploads/2023/02/page-lessons-1024x683.jpg?strip=all&lossy=1&sharp=1&ssl=1"
+                        alt="">
+                </div>
+                <div
+                    class="small-card cursor-pointer relative basis-[30vw] h-full rounded-xl bg-[#91B509] overflow-hidden group">
+                    <h2
+                        class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-[1] text-2xl whitespace-nowrap font-bold text-black group-hover:text-white transition-all duration-[0.5s]">
+                        Adventure Golf</h2>
+                    <img class="object-cover w-full h-full opacity-0 scale-[1.2] group-hover:opacity-100 group-hover:scale-[1] transition-all duration-[0.5s]"
+                        src="https://eiwgew27fhz.exactdn.com/wp-content/uploads/2023/02/page-ag-1024x682.jpg?strip=all&lossy=1&sharp=1&ssl=1"
+                        alt="">
+                </div>
+            </div>
+        </section>
+        <footer
+            class="w-full h-[60vh] relative z-[10] pt-16 pb-4 px-16 bg-gradient-to-bl from-[#5EB32A] to-[#9ECC1F] overflow-hidden">
+            <img src="https://eiwgew27fhz.exactdn.com/wp-content/themes/puttosaurus/img/dots-footer.svg" alt=""
+                class="absolute top-[10%] left-0 w-[30%]">
+            <div class="relative w-full h-full z-[1] flex flex-col">
+                <div class="w-full h-auto grow px-16 flex justify-between items-start gap-4">
+                    <div class="basis-[20vw]  flex flex-col justify-between gap-16">
+                        <img src="https://eiwgew27fhz.exactdn.com/wp-content/uploads/2023/02/logo-white.svg" alt=""
+                            class="logo w-[40%]">
+                        <div class="flex items-center gap-4">
+                            <svg fill="#000000" class="w-[2vw] cursor-pointer" viewBox="0 0 60.734 60.733"
+                                xml:space="preserve">
+                                <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+                                <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
+                                <g id="SVGRepo_iconCarrier">
+                                    <g>
+                                        <path
+                                            d="M57.378,0.001H3.352C1.502,0.001,0,1.5,0,3.353v54.026c0,1.853,1.502,3.354,3.352,3.354h29.086V37.214h-7.914v-9.167h7.914 v-6.76c0-7.843,4.789-12.116,11.787-12.116c3.355,0,6.232,0.251,7.071,0.36v8.198l-4.854,0.002c-3.805,0-4.539,1.809-4.539,4.462 v5.851h9.078l-1.187,9.166h-7.892v23.52h15.475c1.852,0,3.355-1.503,3.355-3.351V3.351C60.731,1.5,59.23,0.001,57.378,0.001z">
+                                        </path>
+                                    </g>
+                                </g>
+                            </svg>
+                            <svg class="w-[2vw] cursor-pointer" viewBox="0 0 24 24" fill="none"
+                                xmlns="http://www.w3.org/2000/svg">
+                                <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+                                <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
+                                <g id="SVGRepo_iconCarrier">
+                                    <path fill-rule="evenodd" clip-rule="evenodd"
+                                        d="M12 18C15.3137 18 18 15.3137 18 12C18 8.68629 15.3137 6 12 6C8.68629 6 6 8.68629 6 12C6 15.3137 8.68629 18 12 18ZM12 16C14.2091 16 16 14.2091 16 12C16 9.79086 14.2091 8 12 8C9.79086 8 8 9.79086 8 12C8 14.2091 9.79086 16 12 16Z"
+                                        fill="#0F0F0F"></path>
+                                    <path
+                                        d="M18 5C17.4477 5 17 5.44772 17 6C17 6.55228 17.4477 7 18 7C18.5523 7 19 6.55228 19 6C19 5.44772 18.5523 5 18 5Z"
+                                        fill="#0F0F0F"></path>
+                                    <path fill-rule="evenodd" clip-rule="evenodd"
+                                        d="M1.65396 4.27606C1 5.55953 1 7.23969 1 10.6V13.4C1 16.7603 1 18.4405 1.65396 19.7239C2.2292 20.8529 3.14708 21.7708 4.27606 22.346C5.55953 23 7.23969 23 10.6 23H13.4C16.7603 23 18.4405 23 19.7239 22.346C20.8529 21.7708 21.7708 20.8529 22.346 19.7239C23 18.4405 23 16.7603 23 13.4V10.6C23 7.23969 23 5.55953 22.346 4.27606C21.7708 3.14708 20.8529 2.2292 19.7239 1.65396C18.4405 1 16.7603 1 13.4 1H10.6C7.23969 1 5.55953 1 4.27606 1.65396C3.14708 2.2292 2.2292 3.14708 1.65396 4.27606ZM13.4 3H10.6C8.88684 3 7.72225 3.00156 6.82208 3.0751C5.94524 3.14674 5.49684 3.27659 5.18404 3.43597C4.43139 3.81947 3.81947 4.43139 3.43597 5.18404C3.27659 5.49684 3.14674 5.94524 3.0751 6.82208C3.00156 7.72225 3 8.88684 3 10.6V13.4C3 15.1132 3.00156 16.2777 3.0751 17.1779C3.14674 18.0548 3.27659 18.5032 3.43597 18.816C3.81947 19.5686 4.43139 20.1805 5.18404 20.564C5.49684 20.7234 5.94524 20.8533 6.82208 20.9249C7.72225 20.9984 8.88684 21 10.6 21H13.4C15.1132 21 16.2777 20.9984 17.1779 20.9249C18.0548 20.8533 18.5032 20.7234 18.816 20.564C19.5686 20.1805 20.1805 19.5686 20.564 18.816C20.7234 18.5032 20.8533 18.0548 20.9249 17.1779C20.9984 16.2777 21 15.1132 21 13.4V10.6C21 8.88684 20.9984 7.72225 20.9249 6.82208C20.8533 5.94524 20.7234 5.49684 20.564 5.18404C20.1805 4.43139 19.5686 3.81947 18.816 3.43597C18.5032 3.27659 18.0548 3.14674 17.1779 3.0751C16.2777 3.00156 15.1132 3 13.4 3Z"
+                                        fill="#0F0F0F"></path>
+                                </g>
+                            </svg>
+                        </div>
+                    </div>
+                    <div class="basis-[20vw]  flex flex-col justify-between gap-4 text-[1.6vw] font-bold text-black">
+                        <a href="#">Toptracer Range</a>
+                        <a href="#"> Crazy Golf</a>
+                        <a href="#"> Café</a>
+                    </div>
+                    <div class="basis-[20vw]  flex flex-col justify-between gap-4 text-[1.6vw] font-bold text-black">
+                        <a href="#">Events
+                        </a>
+                        <a href="#"> Golf Lessons
+                        </a>
+                        <a href="#"> Contact Us</a>
+                    </div>
+
+                    <div class="basis-[20vw]  text-black font-medium">
+                        <p>A20, Sidcup Bypass <br>
+                            Chislehurst <br>
+                            Kent <br>
+                            BR7 6RP</p>
+                        <p>TEL: <a href="tel:0000 123 0000" class="font-bold">0000 123 0000</a></p>
+                        <a href="#" class="text-[1.3vw] font-bold">Get Directions</a>
+                    </div>
+                </div>
+                <div class="px-16 flex items-center justify-between text-black font-medium">
+                    <div class="flex text-sm gap-2">
+                        <p>Copyright © 2025 Karan Suthar. All rights reserved.
+                        </p>|
+                        <a href="#">Privacy Policy</a>|
+                        <a href="#">Terms And Conditions</a>|
+                        <a href="#">Gender Pay Gap</a>
+                    </div>
+                    <a href="#" class="text-sm">Web Design London</a>
+                </div>
+            </div>
+        </footer>
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"
+        integrity="sha512-7eHRwcbYkK4d9g/6tD/mhkf++eoTHwpNM9woBxtPUBWm67zeAfFC+HrdoE2GanKeocly/VxeLvIqwvCdk7qScg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"
+        integrity="sha512-onMTRKJBKz8M1TnqqDuGBlowlH0ohFzMXYRNebz+yOcc5TQr/zAKsthzhuv0hiyUKEiQEQXEynnXCvNTOk50dg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <!-- Swiper JS -->
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <script src="vanila-tilt.js"></script>
+    <script src="script.js"></script>
+</body>
+
+</html>
